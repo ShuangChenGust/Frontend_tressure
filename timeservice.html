@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="myAPP">
+<head>
+    <script src="angular.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body ng-controller="myController">
+    <h1>
+        {{ data }}
+    </h1>
+    <script>
+        var app = angular.module('myAPP',[]);
+        app.controller("myController", function($scope, $$http){
+            // $interval(function(){
+            //     $scope.time = new Date().toLocaleTimeString();
+            // },1000); 
+            $http.get("directives.html")
+                 .then(function(response){
+                     $scope.data = response.data;
+                 })
+        });
+    </script>
+</body>
+</html>

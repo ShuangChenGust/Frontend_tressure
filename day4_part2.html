@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<script>
+    function color(){
+        alert(document.getElementById("colorpick").value);
+        document.getElementById("text").style.color = document.getElementById("colorpick").value;
+    }
+</script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <form>
+    <input id="colorpick" onchange = "color()" type="color" value="#e66465">
+    <textarea name="change" id="text" cols="30" rows="10">
+        change text color here.
+    </textarea>
+  </form>
+</body>
+</html>

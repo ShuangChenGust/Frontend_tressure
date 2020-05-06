@@ -1,0 +1,68 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script type="text/javascript">
+  $(document).ready(function () {
+    $(".expandableCollapsibleDiv > img").click(function (e) {
+      var showElementDescription = 
+        $(this).parents(".expandableCollapsibleDiv").find("ul");
+  
+      if ($(showElementDescription).is(":visible")) {
+        showElementDescription.hide("fast", "swing");
+        $(this).attr("src", "Image/up-arrow.jpg");
+      } else {
+        showElementDescription.show("fast", "swing");
+        $(this).attr("src", "Image/down-arrow.jpg");
+      }
+    });
+  });
+</script>
+
+    <title>Document</title>
+</head>
+<body>
+    <div class="mainDiv">
+        <div class="expandableCollapsibleDiv">
+            <h3><a>NEW YORK</a></h3>
+            <ul>
+                <li><a>Albany</a></li>
+                <li><a>Buffalo</a></li>
+                <li><a>Kingston</a></li>
+                <li><a>Tonawanda</a></li>
+                <li><a>Sherrill</a></li>
+                <li><a>Sherrill</a></li>
+                <li><a>Oneida</a></li>
+            </ul>
+        </div>
+        <div class="expandableCollapsibleDiv">
+            <h3><a>CALIFORNIA</a></h3>
+            <ul>
+                <li><a>Alameda</a></li>
+                <li><a>Bell</a></li>
+                <li><a>Banning</a></li>
+                <li><a>Campbell</a></li>
+                <li><a>Fresno</a></li>
+                <li><a>Galt</a></li>
+                <li><a>Jackson</a></li>
+            </ul>
+        </div>
+        <div class="expandableCollapsibleDiv">
+            <h3><a>WASHINGTON</a></h3>
+            <ul>
+                <li><a>Asotin</a></li>
+                <li><a>Bellingham</a></li>
+                <li><a>Bothell</a></li>
+                <li><a>Camas</a></li>
+                <li><a>Clarkston</a></li>
+                <li><a>Cheney</a></li>
+                <li><a>Newport</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

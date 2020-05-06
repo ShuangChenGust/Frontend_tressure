@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="angular.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var app = angular.module('watchApp',[]);
+        app.controller('watchCtrl', function($scope){
+            $scope.count = -1;
+            $scope.$watch('txtval', function(newval, oldval){
+                $scope.count = $scope.count + 1;
+            })
+        })
+    </script>
+</head>
+<body style="font-family: Arial, Helvetica, sans-serif">
+    <div ng-app="watchApp" ng-controller="watchCtrl">
+        <h2>AngularJS $watch</h2>
+        Enter Val: <input type="text" ng-model="txtval" />
+        <hr>
+        <span>No of times $watch() fired: <span>{{count}}</span> </span>
+    </div>
+</body>
+</html>

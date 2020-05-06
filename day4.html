@@ -1,0 +1,63 @@
+<!-- Problems with the oninput(). -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span::after{
+            padding : 15 px;;
+        }
+        input:invalid+span::after{
+            content:"🍕Food";
+        }
+        input:valid+span::after{
+            content:"\2713 ヽ(•‿•)ノHappy ";
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <label> Smaple
+            <!-- <input type="text" required />
+            <input type="submit" value="click"> -->
+            <input type="date" name ="shuang" min = "2020-02-22" max = "2021-12-03" required>
+            <input type="submit" value="click">
+            <span class="Validity"></span>
+            <br>
+            <br>email: &nbsp
+            <input type="email" id="email" size="30" value = "email" required>
+            <input type="submit" value="click">
+            <span class="Validity"></span>
+        </label>
+    </form>
+    <form>
+        <input pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" required />
+        <br />
+        <input type="submit" value="Submit Now!">
+    </form>
+
+    <br>
+    <br>
+    <form oninput="amout.value = (principal.valueAsNumber * rate.valueAsNumber) /100 " style = "font-family: Arial, Helvetica, sans-serif;"></form>
+
+    <fieldset>
+        <legend>calculate</legend>
+
+        <label for="principal">amout to invest:$</label>
+        <input type="number" min="0" max="22222" id = "principal" value = "10000">
+
+        <p><label for="rate">interest rate</label></p>
+        
+        <input id="rate" type="range" min="0" max="20" value="0" oninput="thisRate.value = rate.value">
+        
+        <output name="thisRate" for="rate">0</output><span>%</span>
+        
+        <p>
+            interest received<strong>$<output name="amount" >0</output></strong>
+        </p>
+
+    </fieldset>
+</body>
+</html>

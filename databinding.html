@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">">
+    <script src="angular.js"></script>
+    <script src="angular-router.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body ng-app="ngRoutingDemo">
+    <h1>angular routing demo</h1>
+    <div ng-app="app" ng-controller="emp"></div>
+        <input ng-bind = "firstName">
+        {{firstName}}
+    <script>
+        var app = angular.module("app",[]);
+
+        app.controller("emp", ["$scope", function($scope){
+            $scope.firstName = "Will",
+            $scope.lastName = "Smith"
+        }])
+    </script>
+</body>
+</html>

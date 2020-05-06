@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <script>
+        function getValues(){
+            document.getElementById("result").innerHTML = " ";
+            var r = document.getElementsByTagName("input");
+            // alert(r.length);
+            for (let i = 0; i < r.length-1; i++) {
+                    if (r[i].checked)
+                        document.getElementById("result").innerHTML += (r[i].value).toUpperCase() + " ";
+                        console.log(r[i].value);
+            }
+        }
+        function myfunc(){
+            if(confirm("r u sure to block this element?")){
+                var x = document.getElementById("div")
+                if(x.style.display == "none"){
+                    x.style.display = "block";
+                }
+                else{
+                    x.style.display = "none";
+                }
+            }
+        }
+    </script>
+    <style>
+        *{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+    </style>
+</head>
+<body style = "font-family: Arial, Helvetica, sans-serif;">
+    Fruits:
+    <br> 
+    <input type ="radio" name = "only" value="mango"> mango</input><br>
+    <input type ="radio" name = "only" value="apple"> apple</input><br>
+    <input type ="radio" name = "only" value="banana"> banana</input><br>
+    <br>
+    <br>
+    Drinks:
+    <input type ="radio" name = "drink" value="cola"> cola</input><br>
+    <input type ="radio" name = "drink" value="water"> water</input><br>
+    <input type ="radio" name = "drink" value="wine"> wine</input><br>
+
+    <input onclick= "getValues()" type="button" value = "CLICK" ></input>
+    <br>
+    <label id="result"></label><br>
+    <br>
+    <br>
+    <div>
+        <img src="images/my.png" alt="background" style = "border-radius:50%"><br>
+        <img src="images/my.png" alt="background" style = "border-radius:60px 60px 0px 0px"><br>
+        <img src="images/my.png" alt="background" style = "border-radius:0px 0px 50% 20px"><br>
+    </div>
+
+<br>
+<br>
+    <label for="id">select a game:</label>
+    <input id = "id" list = "games" placeholder = "select a game" >
+    <datalist id = "games">
+        <option>G1</option>
+        <option>G2</option>
+        <option>G3</option>
+        <option>G4</option>
+    </datalist>
+    <br><br>
+    <div id = div
+    style = "height:100px; width: 20 px; border: 1px solid blue ; background-color: greenyellow;">
+    <br>
+    <br>
+    <br>
+        <input onclick= "myfunc()" type = "button" value = "click">
+    </div>
+
+</body>
+</html>

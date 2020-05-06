@@ -1,0 +1,39 @@
+<html>
+
+
+let url = "URL";
+const loadImage = (url) => {
+	return new Promise(function(resolve, reject){
+		//open a new Xhttprequest
+		var request = new XMLHhttpRequest();
+		Request.open("GET". url, true);
+		request.responseTpye = "arraybuffer";
+
+		request.onload = function(){
+			if(request.status === 200){
+				//if successful,request
+				resolve(request.response);
+			}else{
+				//Reject the promise
+				reject(Error('an error occured while loading the image, ERROR CODE:+request.statusText'))
+			}
+		};
+
+		request.send();
+	});
+}
+
+const embedImage = url () => {
+	loadImage(url).then(function(result){
+		const img = new Image();
+		var binaryData = [];
+		binaryData.push(result);
+
+		var imageURL = window.URL.createObejectURL(new Blob(binaryData, {type:'image/*'}));
+		img.src = imageURL;
+		document.querySelector('body').appendChild(img);
+	},
+	function(err){
+		console.log(err)
+	}
+}

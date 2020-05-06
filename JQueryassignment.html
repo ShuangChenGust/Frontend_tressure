@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+<title>Document</title>
+<script>
+$(document).ready(function(){
+  $("p").mouseenter(function(){
+      $(this).hide();
+  });
+});
+// $(document).ready(function(){
+//   $("p").mouseenter(function(){
+//     $("p").hide();
+//   });
+// });
+$(document).ready(function(){
+    $('p').mouseleave(function(){
+        $(this).show();
+    });
+});
+$(document).ready(function(){
+$("#button1").click(function(){
+    $("#div1").fadeIn();
+    });
+});
+$(document).ready(function(){
+  $("#div2").click(function(){
+    $("#div3").slideDown(5000);
+  });
+  $("#button4").click(function(){
+    $("#div3").stop();
+  });
+});
+$(document).ready(function(){
+  $("#button2").click(function(){
+    $("#div4").animate({left: '250px'});
+  });
+});
+$(document).ready(function(){
+  $("#button3").click(function(){
+    $("p").hide("slow", function(){
+      alert("The paragraph is now hidden");
+    });
+  });
+});
+
+
+</script>
+</head>
+<body>
+<p>hide/show</p>
+<button id = "button1">fadein</button>
+<div id="div1" style="width:80px;height:80px;display:none;background-color:blue;"></div><br>
+<br>
+<br>
+<div id="div2">Click to slide down</div>
+<div id="div3" style="display: none;">Hello world!</div>
+<br>
+<br>
+<button id = "button2">animation</button>
+<div id = "div4" style="background:#98bf21;height:100px;width:100px;position:absolute;"></div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<button id = "button4">stop</button>
+<button id = "button3">callback</button>
+</body>
+</html>

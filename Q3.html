@@ -1,0 +1,54 @@
+<html>
+<head>
+<link a href="Q3.css">
+<script>
+    $(document).ready(function() {
+	$('[data-toggle="toggle"]').change(function(){
+		$(this).parents().next('.hide').toggle();
+	});
+});
+</script>
+</script>
+</head>
+<body>
+<div id="wrapper">
+
+<table border=1 id="table_detail" align=center cellpadding=10>
+
+<tr>
+<th>Name</th>
+<th>Age</th>
+<th>Salary</th>
+<th>Job</th>
+</tr>
+
+<tr onclick="show_hide_row('hidden_row1');"><td>Ankit</td><td>25</td><td>60000</td><td>Computer Programmer</td></tr>
+<tr id="hidden_row1" class="hidden_row">
+<td colspan=4>Ankit is 25 years old and he is a computer programmer he earns 60000 per month</td>
+</tr>
+
+<tr onclick="show_hide_row('hidden_row2');"><td>Aarti</td><td>29</td><td>40000</td><td>Web Designer</td></tr>
+<tr id="hidden_row2" class="hidden_row">
+<td colspan=4>Aarti is 29 years old and she is a web designer he earns 40000 per month</td>
+</tr>
+
+<tr onclick="show_hide_row('hidden_row3');"><td>Mohit</td><td>32</td><td>90000</td><td>Cyber Security Expert</td></tr>
+<tr id="hidden_row3" class="hidden_row">
+<td colspan=4>Mohit is 32 years old and he is a cyber security expert he earns 90000 per month</td>
+</tr>
+
+<tr onclick="show_hide_row('hidden_row4');"><td>John</td><td>22</td><td>20000</td><td>Content Writer</td></tr>
+<tr id="hidden_row4" class="hidden_row">
+<td colspan=4>John is 22 years old and he is a content writer he earns 20000 per month</td>
+</tr>
+
+<tr onclick="show_hide_row('hidden_row5');"><td>Mukesh</td><td>40</td><td>3,50000</td><td>Chief Executive</td></tr>
+<tr id="hidden_row5" class="hidden_row">
+<td colspan=4>Mukesh is 40 years old and he is chief executive he earns 3,50000 per month</td>
+</tr>
+
+</table>
+
+</div>
+</body>
+</html>

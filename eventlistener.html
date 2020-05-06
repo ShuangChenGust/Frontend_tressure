@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id = "p">choose you color</p>
+    <div>
+        <input type="color" id="head" name="head" value="#38F106">
+        <label for="head">Select Color</label>
+    </div>
+    <div>
+        <input type="color" id="body" name="body" value="#38F106">
+        <label for="body">Select Color</label>
+        <label id="dis">Color name</label>
+    </div>
+    <script>
+        var head = document.getElementById("head");
+        head.addEventListener("change", function(){
+            let p = document.getElementById("p");
+            p.style.color = head.value;
+        });
+
+        var body =document.getElementById("body");
+        body.addEventListener("change", function(){
+            document.getElementById("dis").innerHTML = body.value;
+            document.getElementById("dis").style.color = body.value;
+        });       
+    </script>
+    <br>
+    <br>
+
+    <p>image in canvas</p>
+    <style>
+        canvas{
+            border:1px solid blue;
+            height: 300px;
+            width:300px;
+        }
+        body{
+            margin:0;
+        }
+    </style>
+    <canvas id = "canvas"></canvas>
+    <script>
+        // var image = new Image();
+        // image.src = "images/my.png";
+        // image.alt = "my friend";
+        // document.body.appendChild(image);
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+
+        var image = new Image();
+        image.src = "images/my.png";
+        image.alt = "my friend";  
+
+        image.onload= () =>{
+            ctx.drawImage(image,0,0,100,100);
+        }       
+    
+
+
+    </script>
+    <br>
+    <br>
+    <canvas id = "can">
+
+    </canvas>
+    <script>
+    // rect    
+    can.height = window.innerHeight;
+    can.width = window.innerWidth;
+
+    var c = can.getContext('2d');
+    
+    c.fillStyle = 'rgb(255,0,0,.3)'
+    c.fillRect(100,100,100,100);
+    
+    c.fillStyle = 'rgb(0,0,255,.5)'
+    c.fillRect(200,200,100,100);
+
+    c.fillStyle = 'rgb(0,255,0,.3)'
+    c.fillRect(300,300,100,100);
+
+    </script>
+    <canvas id = "circle">
+        <script>
+        var cir = circle.getContext('2d');
+            for (let i = 0; i <300; i++){
+                var x = Math.random() * window.innerWidth;
+                var y = Math.random() * window.innerHeight;
+                cir.beginPath();
+                cir.arc(x,y,10,0,Math.PI*2, true);
+                cir.strokeStyle = "#" + i*3 ;
+                cir.stroke();
+            }
+        </script>
+    </canvas>
+</body>
+</html>
