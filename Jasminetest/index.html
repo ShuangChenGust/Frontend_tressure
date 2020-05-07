@@ -10,13 +10,33 @@
   <script src="lib/jasmine.js"></script>
   <script src="lib/jasmine-html.js"></script>
   <script src="lib/boot.js"></script>
+  <!-- 需要测试的js文件及jasmine测试脚本 -->
   <script src="calculator.js"></script>
   <script src="calculator.spec.js"></script>
   
   <script src="main.js"></script>
   <script src="main.spec.js"></script>
-</head>
 
+  <script src="custom-matcher.js"></script>
+</head>
+<!-- /*
+jasmine基本语法介绍：
+describe(string, function)：可以理解为是一个测试集或者测试包（官方称之为suite），主要功能是用来划分单元测试的，describe是可以嵌套使用的
+参数string：描述测试包的信息
+参数function：测试集的具体实现，可包含任意代码
+
+it(string, function)：测试用例（官方称之为spec）
+参数string：描述测试用例的信息
+参数function：测试用例的具体实现，可包含任意代码
+
+expect：断言表达式
+
+从以下例子可知：
+1、每个测试文件中可以包含多个describe
+2、每个describe中可以包含多个it
+3、每个it中可以包含多个expect
+4、describe可嵌套使用
+*/ -->
 <body>
 </body>
 </html>

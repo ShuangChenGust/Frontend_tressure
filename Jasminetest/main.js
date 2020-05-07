@@ -1,4 +1,4 @@
-main.js
+// main.js
 
 /**
  * Calculates result for a simple mathematical expression.

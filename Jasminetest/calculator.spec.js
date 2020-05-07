@@ -15,13 +15,21 @@ describe('calculator.js', function(){
         expect(calculator.total).toBe(25);
     });
     it('should multiple numbers to total', function(){
+        const calculator = new Calculator();
+        calculator.total = 1;
+        calculator.multiply(5);
 
+        expect(calculator.total).toBe(5);
     });
     it('should divide numbers to total', function(){
+        const calculator = new Calculator();
+        calculator.total = 30;
+        calculator.divide(5);
 
+        expect(calculator.total).toBe(6);
     });
 
-    it('should test',function(){
+    it('should initial total',function(){
         const calculator = new Calculator();
 
         expect(calculator.total).toBe(0);
@@ -32,8 +40,12 @@ describe('calculator.js', function(){
 
         expect(calculator).toEqual(calculator2);
     });
-    it('should initiate the total',function(){
-        //unfiinished//
+    it('should toBe Truthy/toBeFalsy',function(){
+        const calculator = new Calculator();
+        const calculator2 = new Calculator();
+        
+        expect(calculator).toBeTruthy();
+        expect(calculator2).toBeTruthy();
     });
     it('instantiates unique objects', function(){
         const calculator = new Calculator();
@@ -64,4 +76,14 @@ describe('calculator.js', function(){
         expect(function(){calculator.divide(0)}).toThrowError(Error);
         expect(function(){calculator.divide(0)}).toThrowError(Error, 'Cannot divide by zero');
     });
+    // 调用throwThis返回的Promise应该以Error拒绝，因此语法应为：
+    it('handles divide by zero', function(){
+        const calculator = new Calculator();
+
+        calculator.total = 20;
+
+        expect(function(){calculator.divide(0)}).toThrow();
+
+    });    
+
 })
