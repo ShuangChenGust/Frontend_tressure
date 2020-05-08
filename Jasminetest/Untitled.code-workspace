@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../todo-tdd"
+		},
+		{
+			"path": ".."
+		}
+	],
+	"settings": {}
+}
