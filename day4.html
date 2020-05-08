@@ -1,4 +1,4 @@
-<!-- Problems with the oninput(). -->
+<!-- Problems with the oninput(). Fixed by add id tag -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,24 +40,22 @@
 
     <br>
     <br>
-    <form oninput="amout.value = (principal.valueAsNumber * rate.valueAsNumber) /100 " style = "font-family: Arial, Helvetica, sans-serif;"></form>
+    <form oninput="amount.value = (principal.valueAsNumber * rate.valueAsNumber) /100 " style = "font-family: Arial, Helvetica, sans-serif;">
+        <fieldset>
+            <legend>calculate</legend>
 
-    <fieldset>
-        <legend>calculate</legend>
+            <label for="principal">amout to invest:$</label>
+            <input type="number" min="0" max="2000" id="principal" value="10000">
 
-        <label for="principal">amout to invest:$</label>
-        <input type="number" min="0" max="22222" id = "principal" value = "10000">
-
-        <p><label for="rate">interest rate</label></p>
-        
-        <input id="rate" type="range" min="0" max="20" value="0" oninput="thisRate.value = rate.value">
-        
-        <output name="thisRate" for="rate">0</output><span>%</span>
-        
-        <p>
-            interest received<strong>$<output name="amount" >0</output></strong>
-        </p>
-
-    </fieldset>
+            <p><label for="rate">interest rate</label></p>
+            <input id="rate" type="range" min="0" max="20" value="0" oninput="thisRate.value = rate.value">
+            
+            <output id="thisRate" name="thisRate" for="rate">0</output><span>%</span>
+            
+            <p>
+                interest received<strong>$<output id="amount" name="amount">0</output></strong>
+            </p>
+        </fieldset>
+    </form>
 </body>
 </html>
