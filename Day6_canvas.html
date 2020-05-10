@@ -14,7 +14,66 @@
     }
 </style>
 <body>
-    <canvas id ="myCanvas"></canvas>
-    <script src = "Day6_HTML animation.js"></script>
+    <canvas id ="can" name="myCanvas">
+        <script src ="Day6.js"></script>
+        <br>
+        <script>
+            // var canvas = document.getElementById("can");
+            // canvas.height = window.innerHeight;
+            // canvas.width = window.innerWidth;
+
+            // var c = canvas.getContext("2d");
+
+            // var x = 200;
+            // var dx = 3;
+            // var radius = 30;
+
+            // c.beginPath();
+            // c.arc(200, 200, 30, 0, Math.PI*2, false);
+            // c.fillStyle = "gold";
+            // c.strokeStyle = "green";
+            // c.fill();
+            // c.stroke();
+
+            // function animate() {
+            // requestAnimationFrame(animate);
+            // c.clearRect(0,0,innerWidth, innerHeight);
+
+            // c.beginPath();
+            // c.arc(x, 200, radius, 0, Math.PI * 2, false);
+            // c.fillStyle = "gold";
+            // c.strokeStyle = "green";
+            // c.fill();
+            // c.stroke();
+
+            // if(x+radius > innerWidth || x-radius < 0){
+            //     dx = -dx;
+            // }
+
+            // x += dx;
+            // }
+        </script>
+    </canvas>
+    <br>
+    <canvas id = "canvas"></canvas>
+    <script>
+        // var image = new Image();
+        // image.src = "images/my.png";
+        // image.alt = "my friend";
+        // document.body.appendChild(image);
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+
+        var image = new Image();
+        image.src = "images/my.png";
+        image.alt = "my friend";  
+
+        image.onload= () =>{
+            ctx.drawImage(image,0,0,100,100);
+        }       
+        
+
+
+    </script>
 </body>
 </html>
