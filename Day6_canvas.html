@@ -75,5 +75,40 @@
 
 
     </script>
+    <!-- //Mario -->
+    <canvas id = "mario" width="500px" height="200px"></canvas>
+    <script>
+        (function (){
+            const canvas=document.getElementById("mario");
+            const ctx = canvas.getContext("2d");
+
+            const mario_width =32;
+            const mario_height = 39;
+
+            const mario = new Image();
+            mario.src = 'images/mario.png';
+            
+            mario.onload = () =>{
+                ctx.drawImage(mario, 0, mario_height * 3, mario_width, mario_height, 100, 50, mario_width*2, mario_height*2);
+            
+            
+            let currentFrame = 0;
+
+            const update = () =>{
+                ctx.clearRect(0,0,500,200);
+                ctx.drawImage(mario, mario_width * (Math.floor(currentFrame)%8), mario_height*4, mario_width, mario_height, 258, 90, mario_width, mario_height);
+            
+                currentFrame += .3;
+                requestAnimationFrame(update);
+            }
+            update();
+        };        
+        })();
+        
+
+    </script>
+
+
+
 </body>
 </html>
