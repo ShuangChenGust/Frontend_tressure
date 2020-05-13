@@ -1,0 +1,80 @@
+// var fs =require('fs');
+
+// //reading a file sync
+// var readMe = fs.readFileSync("data.txt","utf8")
+// console.log(readMe);
+
+// //writing a file
+// fs.writeFileSync('write.txt',readMe)
+// fs.appendFileSync('write.txt', 'the end of the File')
+
+
+
+
+
+// // //async
+// // fs.nkdir("Test", function(){
+//     fs.readFile('data.txt', 'utf8', function(err,data){
+//         fs.writeFile('./Test/newfile.txt, data, function(err)');{
+//             if (err) console.log(err.message);
+//             else console.log("file deledted successfully");
+//         }
+//     })
+// // })
+
+// // remove the folder 
+// fs.unlink("data.txt",function(err){
+//     if (err)
+//         console.log(err.message);
+//     else
+//         console.log('File deleted succesfully')
+// })
+
+// // fs.unlink("./Test/newFile.txt")
+
+assignment1 remove folder
+var rimraf = require("rimraf");
+rimraf("testfolder", function (err) {
+    if (err)
+    console.log(err.message);
+    else
+    console.log('File deleted succesfully')
+    });
+
+
+assignment2
+// npm i fs-backwards-stream
+// var backwardsStream = require('fs-backwards-stream')
+ 
+// var s = backwardsStream('data1.txt')
+ 
+// s.on('data',function(buf){
+//   console.log(buf.toString());
+// })
+// Assignment2, Solution2
+const readline = require('readline');
+const fs = require('fs');
+
+const readInterface = readline.createInterface({
+    input: fs.createReadStream('data1.txt'),
+    output: process.stdout,
+    console: false
+});
+
+Assignment3 Replace all the occurrences of 'is' to '**' in a file.
+const string = 'He is a good man, She is also a good girl'
+
+console.log(string.replace('is', '*'))  
+// -> e851e2fa4f00-4609-9dd2-9b3794c59619
+
+var fs = require('fs')
+fs.readFile('data2.txt', 'utf8', function (err,data) {
+  if (err) {
+    return console.log(err);
+  }
+  var result = data.replace(/is/g, '*');
+
+  fs.writeFile('data2.txt', result, 'utf8', function (err) {
+     if (err) return console.log(err);
+  });
+});
