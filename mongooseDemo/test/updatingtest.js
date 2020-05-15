@@ -16,12 +16,11 @@ describe('Updating Records', function(){
     });
     //creat test
     it('Update a name record from db', function(done){
-        MarioChar.updateOne({name:'Mario'}, {name:"lugi"}).then(function(){
+        MarioChar.findOneAndUpdate({name:'Mario'}, {name:"lugi"}).then(function(){
             MarioChar.findOne({_id:char._id}).then(function(result){
-                assert(result.name === "lugi");
-                            
+                assert(result.name === "lugi");                            
             });
-            done();
+            done();  
         });
     });
     //find a id
@@ -33,6 +32,15 @@ describe('Updating Records', function(){
             });
             done();
         });
-
     });    
 })
+
+
+// validator:{
+//             $and:[
+//                     {
+//                         "mobile":{$type:'string', $regex:/^[0-9]{2}-[0-9]{3}-[0-9]{4}$/}
+//                     }                
+//                  ]
+//           }
+// })

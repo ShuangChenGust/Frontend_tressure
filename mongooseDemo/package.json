@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "mocha": "^7.1.2",
-    "mongoose": "^5.9.14"
+    "mongoose": "^5.9.14",
+    "node.js": "0.0.1-security"
   }
 }
