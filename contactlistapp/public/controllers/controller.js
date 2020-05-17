@@ -1,4 +1,4 @@
-function appctrl(){
+function AppCtrl($scope){
     console.log("hi");
 
     person1 = {
@@ -11,5 +11,14 @@ function appctrl(){
         email:"emilly@gmail.com",
         number:"(222) 111-1111"
     };
+    person3 = {
+        name:"Shuang",
+        email:"Shuang@gmail.com",
+        number:"(508) 615-3172"
+    };
+
+    var contactlist = [person1, person2, person3];
+    $scope.contactlist = contactlist
+
 }
-appctrl();
+// AppCtrl();
