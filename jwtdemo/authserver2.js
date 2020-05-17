@@ -9,11 +9,11 @@ app.use(express.json());
 const posts = [
     {
         username:'Kyle',
-        title:'Post 1'
+        title:'Post 3'
     },
     {
         username:'Joy',
-        title:'Post 2'
+        title:'Post 4'
     }
 ]
 
@@ -47,4 +47,4 @@ function authenticateToken(req, res, next){
     })
 }
 
-app.listen(3000);
+app.listen(4000);
