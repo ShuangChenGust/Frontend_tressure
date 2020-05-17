@@ -12,10 +12,14 @@ const posts = [
         title:'Post 1'
     },
     {
-        username:'Joy',
+        username:'Jim',
         title:'Post 2'
     }
 ]
+
+function generateAccessToken(user){
+    return jwt.sign(user,process.env.ACCESS_TOKEN_SECRET, {expiresIn: '25s'});
+}
 
 app.get('/posts', authenticateToken, (req, res) => { 
     res.json(posts.filter(posts => posts.username === req.user.name))
@@ -29,22 +33,25 @@ app.post('/login', (req, res) =>{
     //authorize and serialze the username
     const user = { name:username}
     //to serialize we need a key
-    const accessToken = jwt.sign(user,process.env.ACCESS_TOKEN_SECRET)//expiration value
-    res.json({accessToken: accessToken})
+    
+    const accessToken = generateAccessToken(user);
+    const refreshToken = jwt.sign(user, process.env.REFER_TOKEN_SECRET);
+    res.json({accessToken: accessToken, refreshToken: refreshToken});
+
 })
 
-function authenticateToken(req, res, next){
-    const authHeader = req.headers['authorization']
-    const token = authHeader && authHeader.split(' ')[1]
+// function authenticateToken(req, res, next){
+//     const authHeader = req.headers['authorization']
+//     const token = authHeader && authHeader.split(' ')[1]
 
-    if (token == null) return res.sendStatus(401)
+//     if (token == null) return res.sendStatus(401)
 
-    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) =>{
-        if(err) return res.sendStatus(403)
+//     jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) =>{
+//         if(err) return res.sendStatus(403)
 
-        req.user = user
-        next()
-    })
-}
+//         req.user = user
+//         next()
+//     })
+// }
 
 app.listen(3000);

@@ -12,26 +12,23 @@ const posts = [
         title:'Post 1'
     },
     {
-        username:'Joy',
+        username:'Jim',
         title:'Post 2'
     }
 ]
 
-app.get('/posts', authenticateToken, (req, res) => { 
-    res.json(posts.filter(posts => posts.username === req.user.name))
-    // res.json(posts)
-})
+
 
 //router
-app.post('/login', (req, res) =>{
-    //authorize user
-    const username = req.body.username
-    //authorize and serialze the username
-    const user = { name:username}
-    //to serialize we need a key
-    const accessToken = jwt.sign(user,process.env.ACCESS_TOKEN_SECRET)//expiration value
-    res.json({accessToken: accessToken})
-})
+// app.post('/login', (req, res) =>{
+//     //authorize user
+//     const username = req.body.username
+//     //authorize and serialze the username
+//     const user = { name:username}
+//     //to serialize we need a key
+//     const accessToken = jwt.sign(user,process.env.ACCESS_TOKEN_SECRET)//expiration value
+//     res.json({accessToken: accessToken})
+// })
 
 function authenticateToken(req, res, next){
     const authHeader = req.headers['authorization']
@@ -46,5 +43,10 @@ function authenticateToken(req, res, next){
         next()
     })
 }
+
+app.get('/posts', authenticateToken, (req, res) => { 
+    res.json(posts.filter(posts => posts.username === req.user.name))
+    // res.json(posts)
+})
 
 app.listen(3000);

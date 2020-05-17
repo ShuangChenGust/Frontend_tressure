@@ -6,6 +6,7 @@
     "devStart": "nodemon server",
     "devStart2": "nodemon server2",
     "test": "echo \"Error: no test specified\" && exit 1",
+    "devStartAuth": "nodemon authServer",
     "start": "node server.js"
   },
   "keywords": [],
