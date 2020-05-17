@@ -1,5 +1,7 @@
-function AppCtrl($scope){
+function AppCtrl($scope, $http){
     console.log("hi");
+
+    $http.get('/contactlist')
 
     person1 = {
         name:"tim",
