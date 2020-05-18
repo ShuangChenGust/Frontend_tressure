@@ -1,26 +1,28 @@
 function AppCtrl($scope, $http){
     console.log("hi");
 
-    $http.get('/contactlist')
-
-    person1 = {
-        name:"tim",
-        email:"tim@gmail.com",
-        number:"(111) 111-1111"
-    };
-    person2 = {
-        name:"Emilly",
-        email:"emilly@gmail.com",
-        number:"(222) 111-1111"
-    };
-    person3 = {
-        name:"Shuang",
-        email:"Shuang@gmail.com",
-        number:"(508) 615-3172"
+    var refresh = function(){
+        $http.get('/contactlist').success(function(response){
+            console.log('I got the data');
+            $scope.contactlist = response;
+            $scope.contact = "";
+        });
     };
 
-    var contactlist = [person1, person2, person3];
-    $scope.contactlist = contactlist
+    refresh();
 
+    $scope.addContact = function(){
+        console.log($scope.contact);
+        $http.post('/contactlist', $scope.contact).success(function(response){
+            console.log(response);
+            refresh();
+            window.location.reload();
+        });
+    };
+
+    // function myrefresh() {
+    //     window.location.reload();
+    // }
+    // myrefresh();
 }
 // AppCtrl();
