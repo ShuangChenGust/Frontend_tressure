@@ -1,0 +1,11 @@
+@import 'base/variables';
+
+body{
+    background-color:$bg;
+    color:$red;
+}
+
+//set the compatibility
+a{
+    transition: all 32ms ease;
+}
