@@ -1,32 +1,8 @@
-d3.json('zombie-attacks.json').then(function(zombie_data){
-    color.domain([
-        d3.min(zombie_data, function(d){
-            return d.num;
-        }),
-        d3.max(zombie_data, function(d){
-            return d.num;
-        })
-    ]);
-d3.json('us.json').then(function(us_data){
-    us_data.features.forEach(function(us_e, us_i){
-        zombie_data.forEach(function(z_e,z_i){
-            if(us_e.properties.name !== z_e.state){
-                return null;
-            }
-            us_data.features[us_i].properties.num = parseFloat(z_e.num)
-        });
-    });
-    console.log(us_data)
-    svg.selectAll('path')
-        .data(us_data.features)
-        .enter()
-        .append('path')
-        .attr('d',path)
-        .attr('fill', function(d){
-            var num = d.properties.num;
-            return num ? color(num) : '#ddd';
-        })
-        .attr('stroke', '#fff')
-        .attr('stroke-width',1)
-    })
-})
+states,percent
+up, 80.00
+Maharastra,70,00
+Bihar,65.0
+MP,50.00
+Gujarat,50.00
+WB,49.0
+TN,35.0

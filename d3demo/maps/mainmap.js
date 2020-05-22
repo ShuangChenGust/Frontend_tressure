@@ -11,6 +11,7 @@ var color = d3.scaleQuantize().range([  'rgb(255,245,240)','rgb(254,224,210)','r
 var projection = d3.geoAlbersUsa()
                     .scale([chart_width])
                     .translate([chart_width / 2, chart_height / 2 ]);
+                    // .translate([0, 100]);
 
 var path = d3.geoPath(projection);
             // .projection(projection);
@@ -21,11 +22,16 @@ var svg = d3.select('#chart')
             .append("svg")
             .attr('width', chart_width)
             .attr('height', chart_height);
+// svg.append("rect")
+// .attr("class", "background")
+// .attr("width", width)
+// .attr("height", height);
 
-var g = svg.append("g")
-    .attr("transform", "translate(" + chart_width / 2 + "," + chart_height / 2 + ")")
-    .append("g")
-    .attr("id", "states");
+
+// var g = svg.append("g")
+//     .attr("transform", "translate(" + chart_width / 2 + "," + chart_height / 2 + ")")
+//     .append("g")
+//     .attr("id", "states");
 
 //Data
 d3.json('zombie-attacks.json').then(function(zombie_data){
@@ -47,6 +53,7 @@ d3.json('us.json').then(function(us_data){
         });
     });
     // console.log(us_data)
+    
     svg.selectAll('path')
         .data(us_data.features)
         .enter()
@@ -69,56 +76,23 @@ d3.json('us.json').then(function(us_data){
             return "0.35em";
         })
         .style('fill', 'black');
-    g.selectAll("text")
-     .data(us_data.features)
-     .enter()
-     .append("svg:text")
-     .text(function(d){
-         return d.properties.name;
-     })
-     .attr("x", function(d){
-         return path.centroid(d)[0];
-     })
-     .attr("y", function(d){
-         return  path.centroid(d)[1];
-     })
-     .attr("text-anchor","middle")
-     .attr('font-size','6pt');
-     
-     })
+    svg.selectAll("text")
+        .data(us_data.features)
+        .enter()
+        .append("text")
+        .text(function(d){
+            return d.properties.name;
+        })
+        .attr("x", function(d){
+            return path.centroid(d)[0];
+        })
+        .attr("y", function(d){
+            return  path.centroid(d)[1];
+        })
+        .attr("text-anchor","middle")
+        .attr('font-size','6pt')
+        .style('fill', 'green');
+        })
 })
 
-// var path = d3.geo.path()
-//     .projection(projection);
-
-// draw();
-
-// function draw(){
-
-//     d3.json("us.json", function(json) {
-//       g.selectAll('#chart')
-//       .data(json.features)
-//       .enter()
-//       .append("path")
-//       .attr("d", path)
-//       .on("click", click);
-  
-//       g.selectAll("text")
-//       .data(json.features)
-//       .enter()
-//       .append("svg:text")
-//       .text(function(d){
-//           return d.properties.name;
-//       })
-//       .attr("x", function(d){
-//           return path.centroid(d)[0];
-//       })
-//       .attr("y", function(d){
-//           return  path.centroid(d)[1];
-//       })
-//       .attr("text-anchor","middle")
-//       .attr('font-size','6pt');
-  
-  
-//     });
-//   }
+// https://stackoverflow.com/questions/13897534/add-names-of-the-states-to-a-map-in-d3-js
