@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <script src = "https://d3js.org/d3.v5.js"></script>
+</head>
+<body>
+    <script src = "https://d3js.org/d3.v5.js"></script>
+    <svg width ="300", height="200"></svg>
+    <script>
+        var data = [2, 4, 8, 10]
+
+        var svg = d3.select("svg"),
+                    width = svg.attr("width"),
+                    height = svg.attr("height"),
+                    radius = Math.min(width, height)/2,
+                    g = svg.append('g').attr("transform", "translate("+width/2+","+height/2+")");
+
+        var color = d3.scaleOrdinal(['#4daf4a', '#C030ff', '#593CFF', '#2c42e8', '#307fff']);
+
+        //generate pie
+        var pie = d3.pie();
+
+        //generate the arcs
+        var arc = d3.arc()
+                    .innerRadius(70)
+                    .outerRadius(radius);
+
+        //generate groups
+        var arcs = g.selectAll('arc')
+                    .data(pie(data))
+                    .enter()
+                    .append("g")
+                    .attr('class', 'arc');
+
+        //draw the  arc path
+        arcs.append("path")
+            .attr("fill", function(d,i){
+                return color(i);
+            })
+            .attr("d", arc);
+    </script>
+    
+</body>
+</html>

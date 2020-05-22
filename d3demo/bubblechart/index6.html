@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .foo{
+            color:blue;
+        }
+        .bar{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <script src = "https://d3js.org/d3.v5.js"></script>
+    <script src = 'index6.js'></script>
+    <script>
+        var data = [120, 500, 500, 600, 1000];
+
+        var width = 600, barHeight = 20, margin = 1;
+
+        var scale = d3
+                    .scaleLinear()
+                    .domain([d3.min(data), d3.max(data)])
+                    .range([50, 500]);
+
+        var svg = d3.select('body')
+                    .append('svg')
+                    .attr('width', width)
+                    .attr('height', barHeight * data.length);
+
+        var g = svg.selectAll("g")
+                .data(data)
+                .enter()
+                .append("g")
+                .attr("transform", function (d, i){
+                    return "translate(0, " + i * barHeight + ")"
+                });
+        g.append('rect')
+         .attr("width", function(d){
+             return scale(d);
+         })
+         .attr("height", barHeight);
+        g.append('text')
+         .attr('x', function(d){return scale(d); })
+         .attr('y', barHeight/2)
+         .attr('dy', '.3em')
+         .text(function(d) {return d})
+
+    </script>
+
+    
+
+    <div id = 'chart-area'></div>
+    
+
+</body>
+</html>
