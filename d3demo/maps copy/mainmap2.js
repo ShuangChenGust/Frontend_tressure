@@ -63,37 +63,39 @@ d3.json('us.json').then(function(us_data){
             var num = d.properties.num;
             return num ? color(num) : '#ddd';
         })
-        .text(function(d){
-            return d.properties.name;
-        })
         .attr('stroke', '#fff')
         .attr('stroke-width',1)
-        .attr("class", "country-label")
-        .append("text")
-        // .attr("transform", function(d) { console.log("d", d); return "translate(" + path.centroid(d) + ")"; })
-        // .text(function(d) { return d.properties.name; })
-        .attr("dy", function (d) {
-            return "0.35em";
-        })
-        .style('fill', 'black');
-    svg.selectAll("null")
-        .data(us_data.features)
-        .enter()
-        .append("text")
-        .text(function(d){
-            return d.properties.name;
-        })
-        .attr("x", function(d){
-            return path.centroid(d)[0];
-        })
-        .attr("y", function(d){
-            return  path.centroid(d)[1];
-        })
-        .attr("text-anchor","middle")
-        .attr('font-size','6pt')
-        .style('fill', 'green');
-        })
+
+        draw_cities();
+    })
 })
+
+function draw_cities(){
+    //new version have to use promise
+    d3.json('us-cities.json').then(function(city_data){
+        svg.selectAll('circle')
+           .data(city_data)
+           .enter()
+           //staging add to tem memory
+           .append('circle')
+           .style('fill', '#9d497a')
+           .style('opacity', 0.5)
+           .attr('cx', function(d){
+               console.log(d)
+               return projection([d.lon, d.lat])[0]
+           })
+           .attr('cy', function(d){
+               return projection([d.lon, d.lat])[1]
+           })
+           .attr('r', function(d){
+               return Math.sqrt(parseInt(d.population) * 0.00005);
+           })
+           .append('title')
+           .text(function(d){
+               return d.city + ": "+ d.population;
+           });
+    });
+}
 
 // https://stackoverflow.com/questions/13897534/add-names-of-the-states-to-a-map-in-d3-js
 // https://github.com/d3/d3-geo
