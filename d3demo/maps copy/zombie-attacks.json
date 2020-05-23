@@ -6,7 +6,7 @@
   { "state":"Colorado", "num":"0.0325" },
   { "state":"Connecticut", "num":"0.3209" },
   { "state":"Delaware", "num":"0.4345" },
-  { "state":"Florida", "num":"0.6304", "properties": { "name": "Florida", "abbr": "FL", "dx": "1em" } },
+  { "state":"Florida", "num":"0.6304" },
   { "state":"Georgia", "num":"0.3891" },
   { "state":"Iowa", "num":"0.5297" },
   { "state":"Idaho", "num":"0.4285" },
