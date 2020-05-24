@@ -2,9 +2,11 @@
 var chart_height = 600;
 var chart_width = 800;
 
-var color = d3.scaleQuantize().range([  'rgb(255,245,240)','rgb(254,224,210)','rgb(252,187,161)',
-                                        'rgb(252,146,114)','rgb(251,106,74)','rgb(239,59,44)',
-                                        'rgb(203,24,29)','rgb(165,15,21)','rgb(103,0,13)']);
+// var color = d3.scaleQuantize().range([  'rgb(255,245,240)','rgb(254,224,210)','rgb(252,187,161)',
+//                                         'rgb(252,146,114)','rgb(251,106,74)','rgb(239,59,44)',
+//                                         'rgb(203,24,29)','rgb(165,15,21)','rgb(103,0,13)']);
+
+var color = d3.scaleQuantize().range([ 'rgb(94, 16, 249)','rgb(0, 156, 255)','rgb(0, 255, 164)','rgb(63, 255, 0)','rgb(214, 245, 0)','rgb(255, 166, 0)','rgb(255, 97, 0)','rgb(200, 65, 65)']);
 
 //Projection
 
@@ -35,14 +37,15 @@ var svg = d3.select('#chart')
 
 //Data
 d3.json('zombie-attacks.json').then(function(zombie_data){
-    color.domain([
-        d3.min(zombie_data, function(d){
-            return d.num;
-        }),
-        d3.max(zombie_data, function(d){
-            return d.num;
-        })
-    ]);
+    // color.domain([
+    //     d3.min(zombie_data, function(d){
+    //         return d.num;
+    //     }),
+    //     d3.max(zombie_data, function(d){
+    //         return d.num;
+    //     })
+    // ]);
+    color.domain [0, 1, 10, 100, 1000, 10000, 100000, 1000000];
 d3.json('us.json').then(function(us_data){
     us_data.features.forEach(function(us_e, us_i){
         zombie_data.forEach(function(z_e,z_i){
