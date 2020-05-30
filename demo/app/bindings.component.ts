@@ -11,6 +11,6 @@ import { Component } from '@angular/core';
 // Property binding
 
 export class BindingsComponent{
-    public title = "bindings demo"
+    public title = "bindings demo2"
     public applyClass = true;
 }
