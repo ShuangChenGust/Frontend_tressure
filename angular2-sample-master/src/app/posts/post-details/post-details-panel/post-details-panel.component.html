@@ -1,0 +1,16 @@
+<div class="card my-2">
+  <div class="card-header">
+    <h1 class="card-title text-xs-center text-uppercase text-justify">
+      {{post.title}}
+    </h1>
+    <h6 class="card-subtitle text-xs-center text-muted"><small>{{post.createdAt|date:'short'}}</small></h6>
+  </div>
+  <div class="card-body">
+    <p>
+      {{post.content}}
+    </p>
+  </div>
+  <div class="card-footer">
+    back to <a [routerLink]="['','posts']">{{'post-list'}}</a>
+  </div>
+</div>

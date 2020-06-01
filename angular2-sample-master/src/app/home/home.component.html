@@ -1,0 +1,15 @@
+<div class="page-header">
+  <h1 class="text-uppercase">Features</h1>
+</div>
+<p class="lead">Using the cutting-edge technology stack.</p>
+<div class="row">
+  <div class="col-md-4 my-1" *ngFor="let s of skills">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title mb2">{{s.name}}</h4>
+        <p class="card-text">{{s.description}}</p>
+        <a class="card-link" [href]="s.url">{{s.name}}</a>
+      </div>
+    </div>
+  </div>
+</div>

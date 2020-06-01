@@ -1,0 +1,22 @@
+<table>
+    <thead>
+        <tr>
+            <th>code</th>
+            <th>name</th>
+            <th>gender</th>
+            <th>salary</th>
+            <th>DOB</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor='let employee of employees; trackBy:trackByEmpCode'>
+            <td>{{employee.code}}</td>
+            <td>{{employee.name | employeeTitle: employee.gender}}</td>
+            <td>{{employee.gender}}</td>
+            <td>{{employee.salary}}</td>
+            <td>{{employee.DOB}}</td>
+        </tr>
+    </tbody>
+</table>
+<hr>
+<button (click)="getEmployees()">Refresh Employee</button>

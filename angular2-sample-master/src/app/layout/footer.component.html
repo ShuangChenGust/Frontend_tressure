@@ -1,0 +1,13 @@
+<div id="footer">
+  <div class="container">
+    <p class="credit">
+      <span class="d-inline mr-auto btn-group btn-group-sm" role="group">
+          <a class="btn" href="javascript:void(0)" [ngClass]="(isLanguage('zh')) ? 'btn-primary' : 'btn-default'" (click)="setLanguage('zh')">中</a>
+          <a class="btn" href="javascript:void(0)" [ngClass]="(isLanguage('en')) ? 'btn-primary' : 'btn-default'" (click)="setLanguage('en')">EN</a>
+      </span>
+      <span class="d-inline text-muted ml-auto">
+        Copyleft@ <a href="https://github.com/hantsy">Hantsy Bai</a>.
+      </span>
+    </p>
+  </div>
+</div>

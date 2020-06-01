@@ -1,0 +1,12 @@
+<div class="card">
+  <div class="card-header">
+    <h1 class="card-title">{{'new-post'}} </h1>
+    <div class="text-muted"><small>all fields marked with star are required.</small></div>
+  </div>
+  <div class="card-body">
+    <app-post-form [post]="post" (onSaved)="onPostSaved($event)"></app-post-form>
+  </div>
+  <div class="card-footer">
+    back to <a [routerLink]="['','posts']">{{'post-list'}}</a>
+  </div>
+</div>
