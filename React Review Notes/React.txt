@@ -1,0 +1,36 @@
+Main front-end and mobile techs:
+1.Angular.Js and ionic
+2.Vue.js and Weex
+3.React.js and React-Native
+Hybrid APP developement:
+H5+, Hbuilder
+
+Category:
+H5 and Ionic:
+1.Must have a entire website, and use H5+ or Ionic package techniques to package the website into application.
+2.Use H5 and Ionic package technologies to package the website into a app into cellphone: Aim1: install to mobile, Aim2: to use equipment’s API
+3.Get an Android App after packaging. Container and web, 
+Ads: High development efficiency. 
+Can use Ionic or H5+ ’s UI component to improve the dev efficiency
+Can use framework’s packaging to build app quickly and push to App Store.
+Dis: Low operating efficiency and operability
+
+
+React Native and Weex
+1.Also need to develop a project, but not a website, but a template, different with Ionic and H5+. This template cannot opperate in Cellphone and browser.
+2.When the app finished development, need to use packaging command to translate the code into Java or OC line by line. Finally the app will totally transfer to native code. So it development the real APP, but use the Front-end development techs.
+
+3.Native APP, the operating efficiency is higher than H5 or Ionic APP,
+Native code inside of Container
+Compare to left side, the APP here has better operability and more fluently. 
+Dis: Not too much available UI components. 
+
+
+
+RN not support python 3
+
+Yarn is provide by Facebook, is an alternative of npm can accelerate the node module downloading. Purpose, RN project create, init, update, operate and package.
+
+Webpack:
+GULP compression
+Js code compression: web pack
