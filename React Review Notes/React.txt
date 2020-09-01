@@ -34,3 +34,65 @@ Yarn is provide by Facebook, is an alternative of npm can accelerate the node mo
 Webpack:
 GULP compression
 Js code compression: web pack
+
+Modularize: From the code perspective, take the difference project part into different module. Easy for reuse/
+Component development:From the UI perspective to analyze the problem and separate the page into several unrelated components. Along with the development of component, we will get more and more components, finally, we can easily important components and splice them into one page. To create the whole page quickly.
+Component is the aggregate of elements.
+React: put the (structure, style, business logic) into one file by js file.
+
+Week App: mostly Chinese local App: Like Ali, Youku, 
+
+How does Virtual Dom work:React uses virtual DOM to enhance its performance. It uses the observable to detect state and prop changes. React uses an efficient diff algorithm to compare the versions of virtual DOM. It then makes sure that batched updates are sent to the real DOM for repainting or re-rendering of the UI.
+ 
+React : install react components, lifecycle
+React-dom : packaging something related to DOM manipulations, e.g. render component to pages.
+
+JSX: mechanism: still use react.creatElement ’s style to realize. Doesn’t use HTML code directly render to pages.
+<> to compile HTML
+If want to write Js code in JSX file ,must use {} contents. {brace, curly}
+Can write any Js code meet the specfication{}
+
+IF you want to add “class” prop in JSX, you should use “classname” cause class is an identifier. Same as for in html, it should be changed to htmlfor
+
+JSX Comments method:
+{ /* */}
+{
+ // comments
+}
+
+Es6 … means properties expand. Expand all props in to this location
+
+In component, if you want to use outside data, you can receive the data through constructor’s props. Props is Read only
+
+Class extend 
+Children class extends parents class
+Super(); //== means the constructor in the parent class, it can inherit any props from parent, includes static props
+
+Data sharing:
+Method1: properties expand … cannot rewrite with the prop
+Method2:Es6 keyword class constructor is default even it doesn’t show 
+Cannot var value inside of the class
+
+Static static method
+
+Class {
+    Constructor(){
+}
+}
+
+
+Function component: must define props before you use it.
+Class component: you can directly use by this. Props. No need for define ahead;
+
+If you want to use props in constructor, you have to write the props in bracket constructor (props)
+
+
+OOD: inheritance, package, polymophism
+Polymophism means the parent class only define the function’s name, but not define the realize logic. The children can use different way to realize the function.
+
+Stateless component: Functional component : no state
+If one component only need the props from outside, and render the page, fit for stateless component {ads: because of no lifecycle, quick a little bit,}
+
+Stateful component: Class component: have state, can write and read
+Class component has its own lifecycle function
+
