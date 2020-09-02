@@ -1,0 +1,73 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.2.0/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.2.0/umd/react-dom.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+<script
+      src="https://kit.fontawesome.com/00c761c639.js"
+      crossorigin="anonymous"
+    ></script>
+<body>
+    <div id="root"></div>
+    <script type="text/jsx">
+
+class HeartButton extends React.Component {
+  state = {
+    likes: 100
+  };
+
+  addLike = () => {
+    let newCount = this.state.likes + 1;
+     this.setState({
+     likes: newCount
+     });
+  };
+  
+  disLike = () => {
+    let newCount = this.state.likes - 1;
+     this.setState({
+     likes: newCount
+     });
+  };
+
+  render() {
+    const likes = this.state.likes;
+    if (likes === 100) {
+      return (
+        <div>
+          <button
+            className="button"
+            onClick={this.addLike}
+          >
+            <i className="far fa-heart fa-lg" style={{ color: "#33c3f0" }}></i>
+          {likes}
+          </button>
+        </div>
+      );
+    }
+    // if (likes === 1) {
+    //   return (
+    //     <div>
+    //       <button className="button" onClick={this.addlike}>
+    //         <i className="fas fa-heart fa-lg" style={{ color: "red" }}></i>
+    //       {likes}
+    //       </button>
+    //     </div>
+    //   );
+    // }
+    if (likes > 100) {
+      return (
+        <div>
+          <button className="button" onClick={this.disLike}>
+            <i className="fas fa-heart fa-lg" style={{ color: "red" }}></i>{" "}
+            {likes}
+          </button>
+        </div>
+      );
+    }
+  }
+}
+    ReactDOM.render(
+        <HeartButton />, document.getElementById('root') );
+    </script>
+
+
+</script>
